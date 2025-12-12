@@ -32,34 +32,50 @@
 
 // FUNCTIONS regular function syntax
 
-function greetUser(userName, message) {
-  //   console.log(userName + ", " + message);
+function createGreeting(userName, message) {
+  // console.log(userName + ", " + message);
   // return "Hi, I am " + userName + ". " + message;
   // this function creates and returns a formatted greeting string, it doesn't greet the user directly
   return `${userName}, ${message}`;
 }
 
-// greetUser("Adlan", "welcome back!");
-// greetUser("Sarah", "good to see you!");
+let greeting1 = createGreeting("Adlan", "welcome back!");
+console.log(greeting1);
+
+let greeting2 = createGreeting("Sarah", "good to see you!");
+console.log(greeting2);
 
 // arrow function syntax
+
 const greetArrow = () => {
   console.log("Hello from arrow function!");
 };
 
 greetArrow();
 
-// arrow function with implicit return (no curly braces)
+// arrow function with implicit return (no curly braces, no return word)
+
 const add = (a, b) => a + b;
 
 console.log(add(2, 3));
 
 // arrow function with single parameter (no parentheses needed)
+
 const square = (x) => x * x;
 
-console.log(square(4));
+console.log(square(4)); // 16
 
 // arrow function with no parameters (need empty parentheses)
-const getRandomNumber = () => Math.random();
+const getRandomNumber = () => Math.random(); //
 
 console.log(getRandomNumber());
+
+// anonymous function expression assigned to a variable
+
+export default (userName, message) => {
+  console.log("Hello from anonymous function!");
+  return `${userName}, ${message}`;
+};
+
+// calling the anonymous function
+// note: since it's a default export, you would need to import it in another file to use it
