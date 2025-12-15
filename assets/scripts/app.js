@@ -79,3 +79,127 @@ export default (userName, message) => {
 
 // calling the anonymous function
 // note: since it's a default export, you would need to import it in another file to use it
+
+// OBJECTS
+
+const user = {
+  name: "John Doe",
+  age: 30,
+  greet() {
+    console.log(
+      // this refers to the current object (user)
+      `Hello, my name is ${this.name} and I am ${this.age} years old.`
+    );
+  },
+};
+
+console.log(user.name); // John Doe
+console.log(user["age"]); // 30
+console.log(user.greet()); // Hello, my name is John Doe and I am 30 years old.
+
+// adding a new property
+user.email = "johndoe@mail.com";
+console.log(user.email); // johndoe@mail.com
+
+// deleting a property
+delete user.age;
+console.log(user.age); // undefined
+
+// looping through object properties
+for (let key in user) {
+  console.log(`${key}: ${user[key]}`);
+}
+
+// CLASSES
+
+// class declaration
+
+class User {
+  // constructor method to initialize object properties
+  constructor(name, age) {
+    (this.name = name), (this.age = age);
+  }
+  greet() {
+    // method to greet
+    console.log(`Hi, I am ${this.name}, and I am ${this.age} years old.`);
+  }
+}
+
+// creating an instance of the User class
+const user1 = new User("Alice", 25);
+user1.greet(); // Hi, I am Alice, and I am 25 years old.
+
+// class expression is another way to define a class
+
+const Admin = class {
+  constructor(name, role) {
+    // initialize object properties
+    (this.name = name), (this.role = role);
+  }
+  greet() {
+    console.log(`Hello, I am ${this.name}, and my role is ${this.role}.`);
+  }
+};
+
+// creating an instance of the Admin class
+const admin1 = new Admin("Bob", "Administrator");
+admin1.greet(); // Hello, I am Bob, and my role is Administrator.
+
+// inheritance example
+
+class SuperAdmin extends Admin {
+  constructor(name, role, permissions) {
+    super(name, role); // call the parent class constructor
+    this.permissions = permissions; // new property for SuperAdmin
+  }
+  showPermissions() {
+    console.log(
+      `SuperAdmin ${
+        this.name
+      } has the following permissions: ${this.permissions.join(", ")}`
+    );
+  }
+}
+
+const superAdmin1 = new SuperAdmin("Charlie", "Super Administrator", [
+  "manage_users",
+  "edit_settings",
+]);
+superAdmin1.greet(); // Hello, I am Charlie, and my role is Super Administrator.
+superAdmin1.showPermissions(); // SuperAdmin Charlie has the following permissions: manage_users, edit_settings.
+
+// ARRAYS
+
+const hobbies = ["reading", "traveling", "coding"];
+
+console.log(hobbies[0]); // reading
+console.log(hobbies.length); // 3
+
+// adding an element
+hobbies.push("gaming");
+console.log(hobbies); // ["reading", "traveling", "coding", "gaming"]
+
+// removing the last element
+hobbies.pop();
+console.log(hobbies); // ["reading", "traveling", "coding"]
+
+// looping through the array
+hobbies.forEach((hobby, index) => {
+  console.log(`${index + 1}. ${hobby}`);
+});
+
+// mapping to a new array
+const upperHobbies = hobbies.map((hobby) => hobby.toUpperCase());
+console.log(upperHobbies); // ["READING", "TRAVELING", "CODING"]
+
+// filtering the array
+const longHobbies = hobbies.filter((hobby) => hobby.length > 6);
+console.log(longHobbies); // ["traveling", "coding"]
+
+// finding an element
+const codingHobby = hobbies.find((hobby) => hobby === "coding");
+console.log(codingHobby); // "coding"
+
+// reducing the array to a single value
+const totalLength = hobbies.reduce((total, hobby) => total + hobby.length, 0);
+console.log(totalLength); // total length of all hobbies strings
