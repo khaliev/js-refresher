@@ -170,8 +170,10 @@ superAdmin1.showPermissions(); // SuperAdmin Charlie has the following permissio
 
 // ARRAYS
 
+// creating an array
 const hobbies = ["reading", "traveling", "coding"];
 
+// accessing elements
 console.log(hobbies[0]); // reading
 console.log(hobbies.length); // 3
 
@@ -183,23 +185,41 @@ console.log(hobbies); // ["reading", "traveling", "coding", "gaming"]
 hobbies.pop();
 console.log(hobbies); // ["reading", "traveling", "coding"]
 
+// findIndex returns the index of the first element that matches the condition, or -1 if not found
+// here, we have a shortest way to write an arrow function, it checks if the item is equal to "coding", and returns true or false
+// arrow function is used as a callback for findIndex method
+// since it's a single parameter, we don't need parentheses around item
+// since it's a single expression, we don't need curly braces or return keyword
+const index = hobbies.findIndex((item) => item === "coding"); // 2
+console.log(index);
+
+// checking if an element exists
+const hasTraveling = hobbies.includes("traveling");
+console.log(hasTraveling); // true
+
 // looping through the array
 hobbies.forEach((hobby, index) => {
   console.log(`${index + 1}. ${hobby}`);
 });
 
-// mapping to a new array
+// ARRAY METHODS
+
+// MAPPING to a new array
 const upperHobbies = hobbies.map((hobby) => hobby.toUpperCase());
 console.log(upperHobbies); // ["READING", "TRAVELING", "CODING"]
 
-// filtering the array
+// mapping to an array of objects
+const editedHobbies = hobbies.map((item) => ({ text: item }));
+console.log(editedHobbies);
+
+// FILTERING the array
 const longHobbies = hobbies.filter((hobby) => hobby.length > 6);
 console.log(longHobbies); // ["traveling", "coding"]
 
-// finding an element
-const codingHobby = hobbies.find((hobby) => hobby === "coding");
-console.log(codingHobby); // "coding"
-
-// reducing the array to a single value
+// REDUCING the array to a single value
 const totalLength = hobbies.reduce((total, hobby) => total + hobby.length, 0);
 console.log(totalLength); // total length of all hobbies strings
+
+// FINDING an element
+const codingHobby = hobbies.find((hobby) => hobby === "coding");
+console.log(codingHobby); // "coding"
