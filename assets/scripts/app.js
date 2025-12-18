@@ -223,3 +223,105 @@ console.log(totalLength); // total length of all hobbies strings
 // FINDING an element
 const codingHobby = hobbies.find((hobby) => hobby === "coding");
 console.log(codingHobby); // "coding"
+
+// ***** DESTRUCTURING *****
+
+// *** ARRAY destructuring ***
+
+const userNameData = ["Mike", "Gibson"];
+
+// traditional way
+
+// const firstName = userNameData[0];
+// const lastName = userNameData[1];
+// console.log(firstName); // Mike
+// console.log(lastName); // Gibson
+
+// destructuring way, more concise and readable
+
+// const [fName, lName] = userNameData;
+// console.log(fName); // Mike
+// console.log(lName); // Gibson
+
+// OR
+
+// these variable names are up to you, you can name them whatever you like
+const [firstName, lastName] = ["Mike", "Gibson"];
+console.log(firstName); // Mike
+console.log(lastName); // Gibson
+
+// *** OBJECT destructuring ***
+
+const userData = {
+  name: "Emma",
+  age: 28,
+};
+
+// traditional way
+
+// const userName = userData.Name;
+// const userAge = userData.Age;
+// console.log(userName); // Emma
+// console.log(userAge); // 28
+
+// destructuring way
+
+// now these variable names MUST MATCH the object property names, otherwise you'll get undefined
+
+const { name, age } = userData;
+console.log(name);
+console.log(age);
+
+// OR
+
+// you can also destructure directly from an object literal
+// and assign an alias to the key values to new variable names using colon :
+const { name: uName, age: uAge } = {
+  name: "Emma",
+  age: 28,
+};
+console.log(uName); // Emma
+console.log(uAge); // 28
+
+// you can also provide default values during destructuring
+const {
+  name: userN = "Default Name",
+  age: userA = 18,
+  email: userE = "",
+} = {
+  name: "Emma",
+  age: 28,
+};
+console.log(userN); // Emma
+console.log(userA); // 28
+console.log(userE); // "" (default value since email doesn't exist in the object)
+
+// DESTRUCTURING in function parameters
+
+// DESTRUCTURING in function parameters
+// Instead of passing an entire object and accessing properties inside the function,
+// you can destructure the object properties directly in the function parameters
+// This extracts specific properties from the object and creates local variables for them
+
+function displayUser({ name, age }) {
+  // name and age are now available as variables inside the function
+  // they were extracted from the object passed as an argument
+  console.log(`Name: ${name}, Age: ${age}`);
+}
+
+// Create an object with properties
+const someUser = {
+  name: "Olivia",
+  age: 32,
+};
+
+// Pass the object to the function
+// The function automatically extracts the name and age properties
+displayUser(someUser); // Name: Olivia, Age: 32
+
+// This is equivalent to the longer way below:
+// function displayUser(user) {
+//   const name = user.name;
+//   const age = user.age;
+//   console.log(`Name: ${name}, Age: ${age}`);
+// }
