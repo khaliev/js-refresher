@@ -325,3 +325,42 @@ displayUser(someUser); // Name: Olivia, Age: 32
 //   const age = user.age;
 //   console.log(`Name: ${name}, Age: ${age}`);
 // }
+
+// SPREAD OPERATOR (...)
+
+// The spread operator allows you to expand elements of an iterable (like an array or object) into individual elements
+// Example with arrays
+
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+
+// Merging two arrays using spread operator
+
+console.log(mergedArr); // [1, 2, 3, 4, 5, 6]
+
+const mergedArr = [...arr1, ...arr2];
+console.log(mergedArr); // [1, 2, 3, 4, 5, 6]
+
+// Example with objects
+const obj1 = { a: 1, b: 2 };
+const obj2 = { c: 3, d: 4 };
+
+// Merging two objects using spread operator
+const mergedObj = { ...obj1, ...obj2 };
+console.log(mergedObj); // { a: 1, b: 2, c: 3, d: 4 }
+
+// You can also use the spread operator to create a shallow copy of an array or object
+const arrCopy = [...arr1];
+console.log(arrCopy); // [1, 2, 3]
+
+const objCopy = { ...obj1 };
+console.log(objCopy); // { a: 1, b: 2 }
+
+// This is useful to avoid mutating the original array or object when making changes
+const newArr = [...arr1, 7]; // adds 7 to the copied array
+console.log(newArr); // [1, 2, 3, 7]
+console.log(arr1); // [1, 2, 3] (original array remains unchanged)
+
+const newObj = { ...obj1, e: 5 }; // adds property e to the copied object
+console.log(newObj); // { a: 1, b: 2, e: 5 }
+console.log(obj1); // { a: 1, b: 2 } (original object remains unchanged)
