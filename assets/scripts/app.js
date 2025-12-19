@@ -326,7 +326,7 @@ displayUser(someUser); // Name: Olivia, Age: 32
 //   console.log(`Name: ${name}, Age: ${age}`);
 // }
 
-// SPREAD OPERATOR (...)
+// ***** SPREAD OPERATOR (...) *****
 
 // The spread operator allows you to expand elements of an iterable (like an array or object) into individual elements
 // Example with arrays
@@ -349,6 +349,15 @@ const obj2 = { c: 3, d: 4 };
 const mergedObj = { ...obj1, ...obj2 };
 console.log(mergedObj); // { a: 1, b: 2, c: 3, d: 4 }
 
+// Using spread operator to extend an object with new properties
+
+const extebdedUser = {
+  isAdmin: true,
+  ...userData,
+};
+
+console.log(extebdedUser); // { isAdmin: true, name: 'Emma', age: 28 }
+
 // You can also use the spread operator to create a shallow copy of an array or object
 const arrCopy = [...arr1];
 console.log(arrCopy); // [1, 2, 3]
@@ -364,3 +373,39 @@ console.log(arr1); // [1, 2, 3] (original array remains unchanged)
 const newObj = { ...obj1, e: 5 }; // adds property e to the copied object
 console.log(newObj); // { a: 1, b: 2, e: 5 }
 console.log(obj1); // { a: 1, b: 2 } (original object remains unchanged)
+
+// You can also use the spread operator to pass array elements as individual arguments to a function
+function sum(x, y, z) {
+  return x + y + z;
+}
+
+const numbers = [1, 2, 3];
+console.log(sum(...numbers)); // 6
+
+// This is equivalent to calling sum(1, 2, 3) directly
+console.log(sum(1, 2, 3)); // 6
+
+// ***** REST OPERATOR (...) *****
+
+// The rest operator allows you to collect multiple elements into a single array or object
+// Example with arrays
+
+function collectArgs(...args) {
+  // args is an array containing all passed arguments
+  return args;
+}
+
+console.log(collectArgs(1, 2, 3, 4)); // [1, 2, 3, 4]
+
+// Example with objects
+
+function collectProps({ a, b, ...rest }) {
+  // a and b are individual properties
+  // rest is an object containing all remaining properties
+  return rest;
+}
+
+const someObj = { a: 1, b: 2, c: 3, d: 4 };
+console.log(collectProps(someObj)); // { c: 3, d: 4 }
+
+// In summary, the spread operator expands elements, while the rest operator collects elements
