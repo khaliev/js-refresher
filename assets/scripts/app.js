@@ -336,8 +336,6 @@ const arr2 = [4, 5, 6];
 
 // Merging two arrays using spread operator
 
-console.log(mergedArr); // [1, 2, 3, 4, 5, 6]
-
 const mergedArr = [...arr1, ...arr2];
 console.log(mergedArr); // [1, 2, 3, 4, 5, 6]
 
@@ -408,4 +406,76 @@ function collectProps({ a, b, ...rest }) {
 const someObj = { a: 1, b: 2, c: 3, d: 4 };
 console.log(collectProps(someObj)); // { c: 3, d: 4 }
 
-// In summary, the spread operator expands elements, while the rest operator collects elements
+// In summary, the spread operator expands elements, while the rest operator collects elements into a single entity.
+
+// ***** CONSTROL STRUCTURES *****
+
+const password = prompt("Enter your password:");
+
+// IF-ELSE statement
+// is called control structure because it controls the flow of code (which code is executed) based on conditions
+
+if (password === "Hello") {
+  // ...code to execute if condition is true
+  console.log("Access granted.");
+} else if (password === "hello") {
+  // ...code to execute if the else-if condition is true
+  console.log("Almost there, try again.");
+} else if (password === "HELLO") {
+  // ...code to execute if this else-if condition is true
+  console.log("Case sensitive, please check your caps lock.");
+} else {
+  // ...code to execute if none of the above conditions are true
+  console.log("Access denied.");
+}
+
+// SWITCH statement
+// another control structure that allows you to execute different code blocks based on the value of a variable/expression
+
+const day = prompt("Enter a day of the week (e.g., Monday):");
+
+switch (day.toLowerCase()) {
+  case "monday":
+    console.log("Start of the work week.");
+    break;
+  case "wednesday":
+    console.log("Midweek day.");
+    break;
+  case "friday":
+    console.log("Last workday of the week!");
+    break;
+  case "saturday":
+  case "sunday":
+    console.log("It's the weekend!");
+    break;
+  default:
+    console.log("Just another weekday.");
+}
+
+// The switch statement checks the value of 'day' and executes the corresponding case block
+// The 'break' statement prevents fall-through to the next case
+// The 'default' case is executed if none of the cases match
+
+// *** for loops ***
+
+const newHobbies = ["reading", "traveling", "coding"];
+
+// traditional for loop
+
+// let i = 0; initializes a counter variable starting at 0
+// i < hobbies.length; continues the loop while i is less than the array length
+// i++ increments the counter by 1 after each iteration
+for (let i = 0; i < newHobbies.length; i++) {
+  // access each hobby by its index position (0, 1, 2, etc.)
+  console.log(newHobbies[i]);
+}
+
+// for...of loop (easier syntax for arrays)
+
+// this loop iterates through each element in the hobbies array
+// 'const hobby' creates a new variable that holds the current element's value
+// 'of newHobbies' tells the loop to go through each item in the newHobbies array
+// on each iteration, hobby is assigned the next value from the array
+for (const hobby of hobbies) {
+  console.log(hobby); // prints the current hobby to the console
+}
