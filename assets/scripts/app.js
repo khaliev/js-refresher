@@ -8,7 +8,7 @@
 // 2. if you want to import a named export, you MUST use the same name as the exported variable
 // import { apikKey } from "./util.js";
 
-// you also import multiple named exports (as an object) in one line:
+// you canalso import multiple named exports (as an object) in one line:
 // import * as util from "./util.js";
 
 // console.log(util);
@@ -88,7 +88,7 @@ const user = {
   greet() {
     console.log(
       // this refers to the current object (user)
-      `Hello, my name is ${this.name} and I am ${this.age} years old.`
+      `Hello, my name is ${this.name} and I am ${this.age} years old.`,
     );
   },
 };
@@ -117,7 +117,7 @@ for (let key in user) {
 class User {
   // constructor method to initialize object properties
   constructor(name, age) {
-    (this.name = name), (this.age = age);
+    ((this.name = name), (this.age = age));
   }
   greet() {
     // method to greet
@@ -134,7 +134,7 @@ user1.greet(); // Hi, I am Alice, and I am 25 years old.
 const Admin = class {
   constructor(name, role) {
     // initialize object properties
-    (this.name = name), (this.role = role);
+    ((this.name = name), (this.role = role));
   }
   greet() {
     console.log(`Hello, I am ${this.name}, and my role is ${this.role}.`);
@@ -156,7 +156,7 @@ class SuperAdmin extends Admin {
     console.log(
       `SuperAdmin ${
         this.name
-      } has the following permissions: ${this.permissions.join(", ")}`
+      } has the following permissions: ${this.permissions.join(", ")}`,
     );
   }
 }
