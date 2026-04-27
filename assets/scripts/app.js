@@ -5,7 +5,10 @@ const user = {
   age: 30,
   greet() {
     console.log(
-      // this refers to the current object (user)
+      // this refers to the current object (user) and allows us to access its properties
+      // using template literals to create a greeting message that includes the user's name and age
+      // the backticks `` allow us to embed expressions inside the string using ${}
+      // the expression ${this.name} evaluates to the value of the name property of the user object, which is "John Doe"
       `Hello, my name is ${this.name} and I am ${this.age} years old.`,
     );
   },
@@ -30,26 +33,41 @@ for (let key in user) {
 
 // CLASSES
 
+// A class is a blueprint for creating objects with shared properties and methods
+// It provides a way to define the structure and behavior of objects in a more organized and reusable way
+//
+
 // class declaration
 
 class User {
-  // * constructor method to initialize object properties
+  // * constructor method to initialize object properties, it is called automatically when a new instance of the class is created
+  // the constructor takes parameters (name, age) and assigns them to the instance using 'this'
+  // 'this' refers to the current instance of the class being created
   constructor(name, age) {
     ((this.name = name), (this.age = age));
   }
+  // so what's going on above is that we are assigned the values of name and age to the properties of the instance (this.name and this.age)
+  // we can use this constructor for accepting parameters / input values, like name & age, for example
+  //and then store them in properties of the object (this.name and this.age) so that we can use them later in methods or when creating instances of the class
+  // this allows us to create multiple instances of the User class with different names and ages, while still sharing the same structure and behavior defined in the class
+
   greet() {
-    // method to greet
+    // method to greet the user
     console.log(`Hi, I am ${this.name}, and I am ${this.age} years old.`);
   }
 }
 
-// * creating an instance of the User class
-const user1 = new User("Alice", 25);
+// * creating an instance of the User class, which is an object that has the properties and methods defined in the User class
+
+const user1 = new User("Alice", 25); // new keyword creates a new instance of the User class, and calls the constructor to initialize the properties with the provided values ("Alice" and 25)
+// the result is an object stored in the variable user1 (and is based on the blueprint we created above), which has the properties name and age, and the method greet() defined in the User class
+
 user1.greet(); // Hi, I am Alice, and I am 25 years old.
 
 // * class expression is another way to define a class
 
 const Admin = class {
+  // constructor method to initialize object properties
   constructor(name, role) {
     // initialize object properties
     ((this.name = name), (this.role = role));
@@ -57,7 +75,7 @@ const Admin = class {
   greet() {
     console.log(`Hello, I am ${this.name}, and my role is ${this.role}.`);
   }
-};
+}; // this creates a class expression and assigns it to the variable Admin, which can be used to create instances of the Admin class
 
 // * creating an instance of the Admin class
 const admin1 = new Admin("Bob", "Administrator");
