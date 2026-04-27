@@ -1,3 +1,5 @@
+// --- MODULES IMPORT & EXPORT---
+
 // 2 ways to import/export variables between files in JavaScript
 
 // 1. you can import the default export with any name you like, but you do NEED to assign a name
@@ -32,10 +34,17 @@
 
 // --- FUNCTIONS ---
 
-// REGULAR function syntax, also known as function declaration, this is the most common way to define a function in JavaScript
+// * FUNCTION DECLARATION (regular function syntax), this is the most common way to define a function in JavaScript
+
 // the idea here is that you define a function with a name, and then you can call that function by its name to execute the code inside it when you'll need it
 
 function createGreeting(userName, message) {
+  // usernName and message are parameters / input values, they are like placeholders for the values that will be passed to the function when it's called
+  // we can also call them arguments, but usually we say arguments when we talk about the values passed to the function during the function call, and parameters when we talk about the variables defined in the function declaration that receive those values
+
+  // in this case, if we call createGreeting() without any arguments, it will use the default values and return "Guest, Welcome!"
+  // if we call createGreeting("Adlan"), it will use "Adlan" for userName and the default "Welcome!" for message, returning "Adlan, Welcome!"
+  // if we call createGreeting("Adlan", "welcome back!"), it will use both provided arguments and return "Adlan, welcome back!"
   // console.log(userName + ", " + message);
   // return "Hi, I am " + userName + ". " + message;
   // this function creates and returns a formatted greeting string, it doesn't greet the user directly
@@ -48,7 +57,28 @@ console.log(greeting1); // Adlan, welcome back!
 let greeting2 = createGreeting("Sarah", "good to see you!");
 console.log(greeting2); // Sarah, good to see you!
 
-// ARROW FUNCTION syntax
+// calling / invoking a function means executing the code inside the function by using its name followed by parentheses, and passing any required arguments inside the parentheses
+// for example, we called the createGreeting function twice with different arguments to get personalized greetings for Adlan and Sarah
+
+// we can assign default values to parameters in case the caller doesn't provide them, for example:
+function createGreeting1(userName = "Guest", message = "Welcome!") {
+  return `${userName}, ${message}`;
+}
+
+let defaultGreeting = createGreeting1();
+console.log(defaultGreeting); // Guest, Welcome!
+
+// * ANONYMOUS FUNCTION EXPRESSION assigned to a variable
+
+const greet = function (userName, message) {
+  console.log("Hello from anonymous function!");
+  return `${userName}, ${message}`;
+};
+
+let greeting3 = greet("Adlan", "how are you?");
+console.log(greeting3); // Adlan, how are you?
+
+// * ARROW FUNCTION syntax
 
 // this is a more concise way to write functions, especially for simple operations or when using functions as callbacks
 // arrow functions are anonymous, they don't have their own name, so you usually assign them to a variable if you want to reuse them
@@ -83,10 +113,11 @@ export default (userName, message) => {
   return `${userName}, ${message}`;
 };
 
-// calling the anonymous function
+// calling / invoking the anonymous function
+
 // note: since it's a default export, you would need to import it in another file to use it
 
-// OBJECTS
+// --- OBJECTS ---
 
 const user = {
   name: "John Doe",
@@ -103,15 +134,15 @@ console.log(user.name); // John Doe
 console.log(user["age"]); // 30
 console.log(user.greet()); // Hello, my name is John Doe and I am 30 years old.
 
-// adding a new property
+// * adding a new property
 user.email = "johndoe@mail.com";
 console.log(user.email); // johndoe@mail.com
 
-// deleting a property
+// * deleting a property
 delete user.age;
 console.log(user.age); // undefined
 
-// looping through object properties
+// * looping through object properties
 for (let key in user) {
   console.log(`${key}: ${user[key]}`);
 }
@@ -121,7 +152,7 @@ for (let key in user) {
 // class declaration
 
 class User {
-  // constructor method to initialize object properties
+  // * constructor method to initialize object properties
   constructor(name, age) {
     ((this.name = name), (this.age = age));
   }
@@ -131,11 +162,11 @@ class User {
   }
 }
 
-// creating an instance of the User class
+// * creating an instance of the User class
 const user1 = new User("Alice", 25);
 user1.greet(); // Hi, I am Alice, and I am 25 years old.
 
-// class expression is another way to define a class
+// * class expression is another way to define a class
 
 const Admin = class {
   constructor(name, role) {
@@ -147,11 +178,11 @@ const Admin = class {
   }
 };
 
-// creating an instance of the Admin class
+// * creating an instance of the Admin class
 const admin1 = new Admin("Bob", "Administrator");
 admin1.greet(); // Hello, I am Bob, and my role is Administrator.
 
-// inheritance example
+// * inheritance example
 
 class SuperAdmin extends Admin {
   constructor(name, role, permissions) {
@@ -174,20 +205,20 @@ const superAdmin1 = new SuperAdmin("Charlie", "Super Administrator", [
 superAdmin1.greet(); // Hello, I am Charlie, and my role is Super Administrator.
 superAdmin1.showPermissions(); // SuperAdmin Charlie has the following permissions: manage_users, edit_settings.
 
-// ARRAYS
+// --- ARRAYS ---
 
-// creating an array
+// * creating an array
 const hobbies = ["reading", "traveling", "coding"];
 
-// accessing elements
+// * accessing elements
 console.log(hobbies[0]); // reading
 console.log(hobbies.length); // 3
 
-// adding an element
+// * adding an element
 hobbies.push("gaming");
 console.log(hobbies); // ["reading", "traveling", "coding", "gaming"]
 
-// removing the last element
+// * removing the last element
 hobbies.pop();
 console.log(hobbies); // ["reading", "traveling", "coding"]
 
@@ -199,34 +230,34 @@ console.log(hobbies); // ["reading", "traveling", "coding"]
 const index = hobbies.findIndex((item) => item === "coding"); // 2
 console.log(index);
 
-// checking if an element exists
+// * checking if an element exists
 const hasTraveling = hobbies.includes("traveling");
 console.log(hasTraveling); // true
 
-// looping through the array
+// * looping through the array
 hobbies.forEach((hobby, index) => {
   console.log(`${index + 1}. ${hobby}`);
 });
 
-// ARRAY METHODS
+// --- ARRAY METHODS ---
 
-// MAPPING to a new array
+// * MAPPING to a new array
 const upperHobbies = hobbies.map((hobby) => hobby.toUpperCase());
 console.log(upperHobbies); // ["READING", "TRAVELING", "CODING"]
 
-// mapping to an array of objects
+// * mapping to an array of objects
 const editedHobbies = hobbies.map((item) => ({ text: item }));
 console.log(editedHobbies);
 
-// FILTERING the array
+// * FILTERING the array
 const longHobbies = hobbies.filter((hobby) => hobby.length > 6);
 console.log(longHobbies); // ["traveling", "coding"]
 
-// REDUCING the array to a single value
+// * REDUCING the array to a single value
 const totalLength = hobbies.reduce((total, hobby) => total + hobby.length, 0);
 console.log(totalLength); // total length of all hobbies strings
 
-// FINDING an element
+// * FINDING an element
 const codingHobby = hobbies.find((hobby) => hobby === "coding");
 console.log(codingHobby); // "coding"
 
@@ -414,7 +445,7 @@ console.log(collectProps(someObj)); // { c: 3, d: 4 }
 
 // In summary, the spread operator expands elements, while the rest operator collects elements into a single entity.
 
-// ***** CONSTROL STRUCTURES *****
+// ***** CONTROL STRUCTURES *****
 
 const password = prompt("Enter your password:");
 
