@@ -1,33 +1,49 @@
-// --- MODULES IMPORT & EXPORT---
+// ======================================================
+// ======================= MODULES =======================
+// ======================================================
 
-// 2 ways to import/export variables between files in JavaScript
+// Modules allow us to split our code into multiple files.
+// This helps organize, reuse, and maintain code in larger projects.
 
-// 1. you can import the default export with any name you like, but you do NEED to assign a name
-// import apikKey from "./util.js";
+// A module can EXPORT values (variables, functions, classes)
+// and another file can IMPORT those values.
 
-// console.log(apiKey);
+// JavaScript supports two main export types:
+// 1) Named exports
+// 2) Default exports
 
-// 2. if you want to import a named export, you MUST use the same name as the exported variable
-// import { apikKey } from "./util.js";
+// ------------------------------------------------------
+// 1. NAMED EXPORTS
+// ------------------------------------------------------
+// You can export multiple values from a single file.
+// The names MUST match when importing.
 
-// you canalso import multiple named exports (as an object) in one line:
-// import * as util from "./util.js";
+// Example (in util.js):
+// export let abc = 123;
+// export let def = 456;
 
-// console.log(util);
-// console.log(util.abc);
-// console.log(util.def);
-// console.log(util.default);
+// Example import (in another file):
+// import { abc, def } from './util.js';
+// console.log(abc, def);
 
-// 3. you can mix default and named imports in one line:
+// ------------------------------------------------------
+// 2. DEFAULT EXPORTS
+// ------------------------------------------------------
+// A file can have ONE default export.
+// You can import it using ANY name you want.
 
-// import apik, { abc, def } from "./util.js";
+// Example (in util.js):
+// export default "YOUR_API_KEY_HERE";
 
-// console.log(apik);
-// console.log(abc);
-// console.log(def);
+// Example import (in another file):
+// import apiKey from './util.js';
+// console.log(apiKey); // "YOUR_API_KEY_HERE"
 
-// 4. you can also rename named imports using "as":
-// import { abc as myAbc, def as myDef } from "./util.js";
+// ------------------------------------------------------
+// 3. SUMMARY
+// ------------------------------------------------------
+// - VARIABLES store data.
+// - FUNCTIONS perform actions and return results.
+// - MODULES organize and share code across files.
 
-// console.log(myAbc);
-// console.log(myDef);
+// Modules help keep your project clean, modular, and maintainable.

@@ -30,31 +30,6 @@ const greetArrow = () => {
   console.log("Hello from arrow function!");
 };
 
-// --- MODULES ---
-
-// modules are a way to organize and reuse code across different files in a project, they allow us to export variables, functions, or classes from one file and import them into another file where we want to use them
-
-// in JavaScript, we can use the export keyword to make something available for other files to import, and the import keyword to bring that exported code into another file
-
-// there are two main types of exports: named exports and default exports
-
-// named exports allow us to export multiple things from a file, and we have to import them using the same names in the importing file
-// for example, in util.js we have:
-// export let abc = 123;
-// export let def = 456;
-
-// default exports allow us to export a single value from a file, and we can import it with any name we want in the importing file
-// for example, in util.js we have:
-// export default "YOUR_API_KEY_HERE";
-
-// in this case, we can import it in another file like this:
-// import apiKey from './util.js';  --- IGNORE ---
-// console.log(apiKey); // "YOUR_API_KEY_HERE"
-
-// in this example, we imported the default export from util.js and assigned it to a variable named apiKey, and then we logged it to the console to see its value
-
-// in summary, variables are used to store data, functions are used to perform actions and return results, and modules are used to organize and reuse code across different files in a project.
-
 // now let's see how we can use these concepts in the context of web development, we'll see how to manipulate the DOM (Document Object Model) to create interactive web pages, and how to use events to respond to user actions.
 // we'll also see how to use APIs (Application Programming Interfaces) to fetch data from external sources and display it on our web pages, and how to use libraries and frameworks to simplify our development process and create more complex applications.
 
