@@ -30,7 +30,10 @@
 // console.log(myAbc);
 // console.log(myDef);
 
-// FUNCTIONS regular function syntax
+// --- FUNCTIONS ---
+
+// REGULAR function syntax, also known as function declaration, this is the most common way to define a function in JavaScript
+// the idea here is that you define a function with a name, and then you can call that function by its name to execute the code inside it when you'll need it
 
 function createGreeting(userName, message) {
   // console.log(userName + ", " + message);
@@ -40,12 +43,15 @@ function createGreeting(userName, message) {
 }
 
 let greeting1 = createGreeting("Adlan", "welcome back!");
-console.log(greeting1);
+console.log(greeting1); // Adlan, welcome back!
 
 let greeting2 = createGreeting("Sarah", "good to see you!");
-console.log(greeting2);
+console.log(greeting2); // Sarah, good to see you!
 
-// arrow function syntax
+// ARROW FUNCTION syntax
+
+// this is a more concise way to write functions, especially for simple operations or when using functions as callbacks
+// arrow functions are anonymous, they don't have their own name, so you usually assign them to a variable if you want to reuse them
 
 const greetArrow = () => {
   console.log("Hello from arrow function!");
