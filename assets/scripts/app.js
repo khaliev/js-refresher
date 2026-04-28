@@ -28,14 +28,20 @@ console.log(user.age); // undefined
 
 // * looping through object properties
 for (let key in user) {
+  // key is a variable that holds the name of the current property in each iteration of the loop
+  // user[key] is used to access the value of the property with the name stored in key
   console.log(`${key}: ${user[key]}`);
+  // this will print each key and its corresponding value in the user object
 }
+// Output:
+// name: John Doe
+// greet: function() { ... }
+// email: johndoe@mail.com
 
 // CLASSES
 
 // A class is a blueprint for creating objects with shared properties and methods
 // It provides a way to define the structure and behavior of objects in a more organized and reusable way
-//
 
 // class declaration
 
