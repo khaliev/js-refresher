@@ -421,3 +421,16 @@ for (let i = 0; i < newHobbies.length; i++) {
 for (const hobby of hobbies) {
   console.log(hobby); // prints the current hobby to the console
 }
+
+// for...in loop (used for objects, but can also be used for arrays to get indices)
+
+// this loop iterates through the indices of the newHobbies array
+// 'const index' creates a new variable that holds the current index value
+// 'in newHobbies' tells the loop to go through each index in the newHobbies array
+// on each iteration, index is assigned the next index from the array (0, 1, 2, etc.)
+for (const index in newHobbies) {
+  console.log(newHobbies[index]); // prints the hobby at the current index to the console
+}
+
+// Note: for...in is generally not recommended for arrays because it iterates over all enumerable properties, including inherited ones, which can lead to unexpected results. It's better to use for...of or traditional for loops for arrays.
+// In summary, control structures like if-else and switch allow you to execute different code based on conditions, while loops (for, for...of, for...in) allow you to repeat code multiple times based on certain criteria.
