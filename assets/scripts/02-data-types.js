@@ -108,3 +108,24 @@ console.log(typeof null); // "object" (this is a known JS bug)
 console.log(typeof {}); // "object"
 console.log(typeof []); // "object" (arrays are objects)
 console.log(typeof sayHello); // "function"
+
+// ------------------------------------------------------
+// 4. TYPE CONVERSION
+// ------------------------------------------------------
+// JavaScript can convert between types automatically (coercion) or you can do it manually.
+
+let num = "42";
+console.log(num + 8); // "428" (string concatenation)
+console.log(Number(num) + 8); // 50 (explicit conversion to number)
+
+let bool = true;
+console.log(bool + 1); // 2 (true is coerced to 1)
+console.log(String(bool)); // "true" (explicit conversion to string)
+
+// ------------------------------------------------------
+// 5. SUMMARY
+// ------------------------------------------------------
+// - JavaScript has primitive and reference data types.
+// - Primitive types are immutable and stored by value.
+// - Reference types are stored by reference and can be modified.
+// - Use typeof to check data types and be aware of type coercion.

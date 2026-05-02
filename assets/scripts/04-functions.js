@@ -201,3 +201,5 @@ const notHoisted = function () {
 // EXAMPLE USAGE OF DEFAULT EXPORT (in another file):
 // import createGreeting from './04-functions.js';
 // console.log(createGreeting("Adlan", "welcome back!")); // Adlan, welcome back!
+
+//
