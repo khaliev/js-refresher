@@ -13,7 +13,6 @@
 //   key3: value3,
 // };
 
-
 // ------------------------------------------------------
 // 1. CREATING AN OBJECT
 // ------------------------------------------------------
@@ -26,11 +25,10 @@ const user = {
   greet() {
     // "this" refers to the CURRENT object (user).
     console.log(
-      `Hello, my name is ${this.name} and I am ${this.age} years old.`
+      `Hello, my name is ${this.name} and I am ${this.age} years old.`,
     );
   },
 };
-
 
 // ------------------------------------------------------
 // 2. ACCESSING OBJECT PROPERTIES
@@ -46,7 +44,6 @@ console.log(user["age"]); // 30
 user.greet();
 // Output: Hello, my name is John Doe and I am 30 years old.
 
-
 // ------------------------------------------------------
 // 3. ADDING NEW PROPERTIES
 // ------------------------------------------------------
@@ -55,7 +52,6 @@ user.greet();
 user.email = "johndoe@mail.com";
 console.log(user.email); // johndoe@mail.com
 
-
 // ------------------------------------------------------
 // 4. MODIFYING EXISTING PROPERTIES
 // ------------------------------------------------------
@@ -63,14 +59,12 @@ console.log(user.email); // johndoe@mail.com
 user.name = "Jonathan Doe";
 console.log(user.name); // Jonathan Doe
 
-
 // ------------------------------------------------------
 // 5. DELETING PROPERTIES
 // ------------------------------------------------------
 
 delete user.age;
 console.log(user.age); // undefined
-
 
 // ------------------------------------------------------
 // 6. LOOPING THROUGH OBJECT PROPERTIES
@@ -88,14 +82,12 @@ for (let key in user) {
 // greet: function() { ... }
 // email: johndoe@mail.com
 
-
 // ------------------------------------------------------
 // 7. CHECKING IF A PROPERTY EXISTS
 // ------------------------------------------------------
 
 console.log("email" in user); // true
-console.log("age" in user);   // false (we deleted it)
-
+console.log("age" in user); // false (we deleted it)
 
 // ------------------------------------------------------
 // 8. NESTED OBJECTS
@@ -111,7 +103,6 @@ const person = {
 
 console.log(person.address.city); // Paris
 
-
 // ------------------------------------------------------
 // 9. OBJECT METHODS (BUILT-IN)
 // ------------------------------------------------------
@@ -126,7 +117,6 @@ console.log(Object.values(user)); // ["Jonathan Doe", function, "johndoe@mail.co
 console.log(Object.entries(user));
 // [["name", "Jonathan Doe"], ["greet", function], ["email", "johndoe@mail.com"]]
 
-
 // ------------------------------------------------------
 // 10. COPYING OBJECTS (IMPORTANT!)
 // ------------------------------------------------------
@@ -139,14 +129,12 @@ copy.a = 99;
 
 console.log(original.a); // 99 (because both variables reference the SAME object)
 
-
 // To copy an object PROPERLY, use the spread operator:
 const realCopy = { ...original };
 realCopy.a = 123;
 
 console.log(original.a); // 99
 console.log(realCopy.a); // 123
-
 
 // ------------------------------------------------------
 // SUMMARY
