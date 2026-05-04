@@ -68,6 +68,12 @@ console.log(hobbies.indexOf("coding")); // 2
 const index = hobbies.findIndex((item) => item === "coding");
 console.log(index); // 2
 
+// findIndex returns the index of the first element that matches the condition, or -1 if not found
+// here, we have a shortest way to write an arrow function, it checks if the item is equal to "coding", and returns true or false
+// arrow function is used as a callback for findIndex method
+// since it's a single parameter, we don't need parentheses around item
+// since it's a single expression, we don't need curly braces or return keyword
+
 // find() → returns the actual element
 const found = hobbies.find((item) => item.startsWith("t"));
 console.log(found); // traveling
