@@ -66,7 +66,7 @@ admin1.greet();
 
 class SuperAdmin extends Admin {
   constructor(name, role, permissions) {
-    // super() calls the parent class constructor
+    // super() calls the parent class constructor to initialize inherited properties
     super(name, role);
     this.permissions = permissions; // new property for SuperAdmin
   }
@@ -74,6 +74,7 @@ class SuperAdmin extends Admin {
   showPermissions() {
     console.log(
       `SuperAdmin ${this.name} has the following permissions: ${this.permissions.join(", ")}`,
+      // this.permissions.join(", ") converts the permissions array into a comma-separated string
     );
   }
 }
@@ -110,11 +111,12 @@ user1.sayBye();
 class Product {
   constructor(name, price) {
     this.name = name;
-    this._price = price; // underscore indicates "internal" property
+    this._price = price; // underscore indicates "internal" property (not directly accessed)
   }
 
   get price() {
     return `$${this._price.toFixed(2)}`;
+    // toFixed(2) formats the price to 2 decimal places
   }
 
   set price(value) {

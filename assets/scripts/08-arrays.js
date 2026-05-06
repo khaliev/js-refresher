@@ -146,7 +146,7 @@ console.log(combined); // [1, 2, 3, 4]
 // - filter()
 // - slice()
 
-// map() → transforms each element
+// map() → transforms each element // to map значит отображать, он создает новый массив, в котором каждый элемент является результатом вызова функции для соответствующего элемента исходного массива
 const uppercased = hobbies.map((hobby) => hobby.toUpperCase());
 console.log(uppercased);
 
