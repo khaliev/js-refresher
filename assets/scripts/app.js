@@ -77,12 +77,6 @@ console.log(userE); // "" (default value since email doesn't exist in the object
 // you can destructure the object properties directly in the function parameters
 // This extracts specific properties from the object and creates local variables for them
 
-function displayUser({ name, age }) {
-  // name and age are now available as variables inside the function
-  // they were extracted from the object passed as an argument
-  console.log(`Name: ${name}, Age: ${age}`);
-}
-
 // Create an object with properties
 const someUser = {
   name: "Olivia",

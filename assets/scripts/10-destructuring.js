@@ -18,7 +18,7 @@ const userNameData = ["Mike", "Gibson"];
 // const lastName = userNameData[1];
 
 // Destructuring way:
-const [firstName, lastName] = userNameData;
+const [firstName, lastName] = userNameData; // This creates two variables (their names are up to you) and assigns them the values that are pulled out from the array based on their POSITION (index).
 
 console.log(firstName); // Mike
 console.log(lastName); // Gibson
@@ -61,7 +61,7 @@ const userData = {
 // const userAge = userData.age;
 
 // Destructuring way:
-const { name, age } = userData;
+const { name, age } = userData; // This creates variables with the same names as the object keys and assigns them the corresponding values from the object based on their NAMES (not position).
 
 console.log(name); // Emma
 console.log(age); // 28
@@ -120,24 +120,32 @@ console.log(zip); // 75000
 // ------------------------------------------------------
 // 3. DESTRUCTURING IN FUNCTION PARAMETERS
 // ------------------------------------------------------
-// Instead of receiving a whole object and accessing properties inside,
-// you can destructure directly in the parameter list.
+
+// Instead of passing an entire object and accessing properties inside the function,
+// you can destructure the object properties directly in the function parameters
+// This extracts specific properties from the object and creates local variables for them
 
 function displayUser({ name, age }) {
+  // name and age are now available as variables inside the function
+  // they were extracted from the object passed as an argument
   console.log(`Name: ${name}, Age: ${age}`);
 }
 
+// Create an object with properties
 const someUser = {
   name: "Olivia",
   age: 32,
 };
 
+// Pass the object to the function
+// The function automatically extracts the name and age properties
 displayUser(someUser);
 // Output: Name: Olivia, Age: 32
 
-// Equivalent to:
+// This is equivalent to the longer way below:
 // function displayUser(user) {
-//   const { name, age } = user;
+//   const name = user.name;
+//   const age = user.age;
 //   console.log(`Name: ${name}, Age: ${age}`);
 // }
 
