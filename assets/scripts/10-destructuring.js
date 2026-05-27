@@ -123,13 +123,19 @@ console.log(zip); // 75000
 
 // Instead of passing an entire object and accessing properties inside the function,
 // you can destructure the object properties directly in the function parameters
-// This extracts specific properties from the object and creates local variables for them
+// This extracts / pulls out specific properties from the object and creates local variables for them
 
 function displayUser({ name, age }) {
   // name and age are now available as variables inside the function
   // they were extracted from the object passed as an argument
   console.log(`Name: ${name}, Age: ${age}`);
 }
+
+// When you call the function, you can pass an object with the expected properties
+displayUser({ name: "John", age: 25 }); // Name: John, Age: 25
+
+// This is especially useful when working with objects that have many properties, or when you only need a few specific properties from the object.
+// // It keeps your code cleaner and more focused on the relevant data.
 
 // Create an object with properties
 const someUser = {
